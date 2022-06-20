@@ -21,6 +21,6 @@ node('') {
 	
 	stage ('Notification'){
 		slackSend channel: '#cicd-automation', 
-                          message: 'deployment is complete'
+                          message: 'slack-notification: deployment is complete'
 	}
 }
