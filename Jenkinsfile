@@ -20,10 +20,7 @@ node('') {
 	}
 	
 	stage ('Notification'){
-		emailext (
-		      subject: "Job Completed",
-		      body: "Jenkins Pipeline Job for Maven Build got completed !!!",
-		      to: "fangli.zhan@gmail.com"
-		    )
+		slackSend channel: '#cicd-automation', 
+                          message: 'deployment is complete'
 	}
 }
