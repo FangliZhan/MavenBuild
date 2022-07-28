@@ -1,5 +1,5 @@
-- hosts: localhost
-  # connection: local
+- hosts: tomcat
+  connection: local
   become: true
   become_user: root
   gather_facts: false
