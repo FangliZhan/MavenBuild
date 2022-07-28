@@ -9,6 +9,8 @@
   tasks:
     - name: stop tomcat
       shell: /etc/tomcat9/bin/shutdown.sh
+      become: true
+      become_user: root
     - name: maven clean package
       command: mvn -f /var/lib/jenkins/workspace/ansible-jenkins-tomcat-deployment/pom.xml clean package
     - name: delete existing war directories in tomcat webapps
@@ -19,4 +21,6 @@
       copy: src=/var/lib/jenkins/workspace/ansible-jenkins-tomcat-deployment/target/{{ warName }} dest={{ warDestPath }}/{{ warName }}
     - name: start tomcat
       shell: /etc/tomcat9/bin/startup.sh
+      become: true
+      become_user: root
 
