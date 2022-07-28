@@ -18,5 +18,5 @@
     - name: copy war file to the tomcat webapp directory
       copy: src=/var/lib/jenkins/workspace/ansible-jenkins-tomcat-deployment/target/{{ warName }} dest={{ warDestPath }}/{{ warName }}
     - name: start tomcat
-      shell: /etc/tomcat9/bin/startup.sh
+      shell: nohup /etc/tomcat9/bin/startup.sh
 
